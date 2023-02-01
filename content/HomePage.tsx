@@ -4,7 +4,7 @@ import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import TextField from '@mui/material/TextField';
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {useRef, useState} from "react";
-import styles from '@/styles/Home.module.css'
+import styles from '@/content/HomePage.module.css'
 import html2canvas from "html2canvas";
 
 const HomePage = () => {
