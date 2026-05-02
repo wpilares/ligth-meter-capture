@@ -1,6 +1,7 @@
 import { Button } from '@components/ui/Button'
 import { Card } from '@components/ui/Card'
-import { formatDateForFilename } from '@utils'
+import { DatePicker } from '@components/ui/DatePicker'
+import { formatDateForDisplay, formatDateForFilename } from '@utils'
 import { toPng } from 'html-to-image'
 import { Calendar, Camera, Download, RotateCcw } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -122,12 +123,7 @@ export const HomePage = () => {
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-light-bg-secondary dark:bg-dark-bg-secondary border border-light-border dark:border-dark-border">
               <Calendar className="w-6 h-6 text-light-accent-primary dark:text-dark-accent-primary" />
               <span className="text-lg md:text-xl font-semibold text-light-text-primary dark:text-dark-text-primary">
-                Fecha:{' '}
-                {new Date(`${date}T00:00:00`).toLocaleDateString('es-ES', {
-                  day: '2-digit',
-                  month: '2-digit',
-                  year: 'numeric',
-                })}
+                Fecha: {formatDateForDisplay(date)}
               </span>
             </div>
           </div>
@@ -171,19 +167,7 @@ export const HomePage = () => {
         <div className="px-6 pb-6 md:px-8 md:pb-8 border-t border-light-border dark:border-dark-border pt-6">
           {/* Date input */}
           <div className="mb-4">
-            <label
-              htmlFor="date-input"
-              className="block text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary mb-2"
-            >
-              Cambiar fecha
-            </label>
-            <input
-              id="date-input"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-lg border bg-light-bg-primary dark:bg-dark-bg-primary text-light-text-primary dark:text-dark-text-primary border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-light-accent-primary/50 dark:focus:ring-dark-accent-primary/50 focus:border-light-accent-primary dark:focus:border-dark-accent-primary transition-colors"
-            />
+            <DatePicker value={date} onChange={setDate} label="Cambiar fecha" />
           </div>
 
           {/* Actions */}
