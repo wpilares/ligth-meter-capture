@@ -1,0 +1,2 @@
+# Run Biome check and fix on staged files
+bunx biome check --write --staged --no-errors-on-unmatched

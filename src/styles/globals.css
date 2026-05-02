@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-poppins antialiased;
+  }
+
+  /* Light mode (default) */
+  html body {
+    @apply bg-white text-[#18181b];
+  }
+
+  /* Dark mode */
+  html.dark body {
+    @apply bg-[#0a0a0a] text-[#f5f5f5];
+  }
+
+  /* Custom scrollbar - Light mode (default) */
+  body ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  body ::-webkit-scrollbar-track {
+    @apply bg-[#f8f5ff];
+  }
+
+  body ::-webkit-scrollbar-thumb {
+    @apply rounded bg-[#e4e4e7];
+  }
+
+  body ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-600;
+  }
+
+  /* Custom scrollbar - Dark mode */
+  html.dark body ::-webkit-scrollbar-track {
+    @apply bg-[#0d0b14];
+  }
+
+  html.dark body ::-webkit-scrollbar-thumb {
+    @apply rounded bg-[#27272a];
+  }
+
+  html.dark body ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-500;
+  }
+
+  /* Selection styling - Light mode (default) */
+  body ::selection {
+    @apply bg-violet-600/30 text-[#18181b];
+  }
+
+  /* Selection styling - Dark mode */
+  html.dark body ::selection {
+    @apply bg-violet-500/30 text-white;
+  }
+}
+
+@layer components {
+  /* Glass effect */
+  .glass {
+    @apply border-b border-gray-200 bg-white/80 backdrop-blur-xl;
+  }
+
+  html.dark .glass {
+    @apply border-b border-white/10 bg-black/70;
+  }
+
+  /* Card */
+  .card {
+    @apply rounded-2xl border border-[#e4e4e7] bg-[#f9fafb] transition-all duration-300 hover:border-violet-500/50;
+  }
+
+  html.dark .card {
+    @apply border-[#27272a] bg-[#111111] hover:border-violet-500/50;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 active:scale-95;
+    @apply bg-violet-600 text-white hover:bg-violet-500 hover:shadow-lg hover:shadow-violet-600/25;
+  }
+
+  html.dark .btn-primary {
+    @apply bg-violet-500 text-white hover:bg-violet-400 hover:shadow-lg hover:shadow-violet-500/25;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full font-medium bg-transparent border-2 transition-all duration-300 active:scale-95;
+    @apply border-[#e4e4e7] text-[#18181b] hover:border-violet-600 hover:text-violet-600;
+  }
+
+  html.dark .btn-secondary {
+    @apply border-[#27272a] text-white hover:border-violet-500 hover:text-violet-400;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-12;
+    @apply text-[#18181b];
+  }
+
+  html.dark .section-title {
+    @apply text-white;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  /* Badge */
+  .badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+    @apply bg-violet-600/10 text-violet-600 border border-violet-600/20;
+  }
+
+  html.dark .badge {
+    @apply bg-violet-500/10 text-violet-400 border border-violet-500/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
